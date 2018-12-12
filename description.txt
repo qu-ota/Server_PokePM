@@ -1,3 +1,0 @@
-Title: Poke and PM
-Author: Dominoes
-Send others direct messages, and "poke" others to send them a sound through their client so they possibly return. Or just generally annoy them.
