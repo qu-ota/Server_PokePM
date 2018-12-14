@@ -102,14 +102,14 @@ function serverCmdPM(%cl,%id,%c1,%c2,%c3,%c4,%c5,%c6,%c7,%c8,%c9,%c10,%c11,%c12,
 	schedule(10000,0,reallowPM,%cl);
 }
 
-function serverCmdAllowPoke(%cl)
+function serverCmdAllowPM(%cl)
 {
-	if($Pref::PokePM::EnablePoke == 0)
+	if($Pref::PokePM::EnablePM == 0)
 		return messageClient(%cl,'',"\c7The server host has \c0disabled \c7private messaging between others.");
-	if(%cl.allowPoke == 0)
+	if(%cl.allowPM == 0)
 	{
 		messageClient(%cl,'',"\c7You have \c3enabled \c7the receiving of private messages; other users can now send you private messages.");
-		%cl.allowPoke = 1;
+		%cl.allowPM = 1;
 	}
 	else
 	{
