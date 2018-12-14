@@ -35,12 +35,6 @@ function serverCmdPoke(%cl, %id)
 		return messageClient(%cl,'',"\c6" @ %t.name SPC "\c7has disabled poking.");
 	if(!isObject(%t))
 		return messageClient(%cl,'',"\c7Your input \c6(" @ %t.name @ ") \c7doesn't seem to be a user that exists.");
-	if(%id $="")
-	{
-		messageClient(%cl,'',"\c2Invalid syntax!");
-		messageClient(%lc,'',"\c7Proper syntax: \c6/poke name");
-		return;
-	}
 	if(%cl.sentPoke == 1)
 		return messageClient(%cl,'',"\c7You've already poked someone, try again in a few seconds. \c6(10 second cooldown)");
 	
@@ -78,12 +72,6 @@ function serverCmdPM(%cl,%id,%c1,%c2,%c3,%c4,%c5,%c6,%c7,%c8,%c9,%c10,%c11,%c12,
 		return messageClient(%cl,'',"\c7The user you've entered has disabled receiving PMs.");
 	if(!isObject(%t))
 		return messageClient(%cl,'',"\c7Your input \c6(" @ %t.name @ ") \c7doesn't seem to be a user that exists.");
-	if(%id $="")
-	{
-		messageClient(%cl,'',"\c2Invalid syntax!");
-		messageClient(%lc,'',"\c7Proper syntax: \c6/pm name 20-word reason \c7(works with underscores!)");
-		return;
-	}
 	if(%cl.sentPM == 1)
 		return messageClient(%cl,'',"\c7You've already sent a private message, please wait a bit before trying again. \c6(10 second cooldown)");
 	
