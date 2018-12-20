@@ -37,6 +37,8 @@ function serverCmdPoke(%cl, %id)
 		return messageClient(%cl,'',"\c7Your input \c6(" @ %t.name @ ") \c7doesn't seem to be a user that exists.");
 	if(%cl.sentPoke == 1)
 		return messageClient(%cl,'',"\c7You've already poked someone, try again in a few seconds. \c6(10 second cooldown)");
+	if(%t.name $= %cl.name)
+		return messageClient(%cl,'',"\c7You can't poke yourself, you dingus.");
 	
 	commandToClient(%t,'MessageBoxOK',"Poke Notification",%cl.name SPC "has poked you. Close this dialogue box when you're back.");
 	//we need a sound here, will add later
@@ -74,6 +76,8 @@ function serverCmdPM(%cl,%id,%c1,%c2,%c3,%c4,%c5,%c6,%c7,%c8,%c9,%c10,%c11,%c12,
 		return messageClient(%cl,'',"\c7Your input \c6(" @ %t.name @ ") \c7doesn't seem to be a user that exists.");
 	if(%cl.sentPM == 1)
 		return messageClient(%cl,'',"\c7You've already sent a private message, please wait a bit before trying again. \c6(10 second cooldown)");
+	if(%t.name $= %cl.name)
+		return messageClient(%cl,'',"\c7You can't whisper to yourself. Sounds like mental insanity...don't do that.");
 	
 	for(%a = 1; %a < 21; %a++)
 	{
