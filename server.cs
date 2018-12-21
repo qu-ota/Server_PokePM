@@ -41,7 +41,7 @@ function serverCmdPoke(%cl, %id)
 		return messageClient(%cl,'',"\c7You can't poke yourself, you dingus.");
 	
 	commandToClient(%t,'MessageBoxOK',"Poke Notification",%cl.name SPC "has poked you. Close this dialogue box when you're back.");
-	//we need a sound here, will add later
+	%cl.play2D(errorsound);
 	messageClient(%t,'',"\c6" @ %cl.name SPC "\c7has poked you.");
 	messageClient(%cl,'',"\c7You have successfully poked \c6" @ %t.name @ "\c7.");
 	%cl.sentPoke = 1;
